@@ -7,6 +7,7 @@ let names = document.getElementById('fullname')
 let number = document.querySelector('#num')
 let email = document.querySelector('#email')
 let address = document.querySelector('#address')
+let button = document.querySelector('#button')
  
 const getDetails =() =>{
     fetch(url).then(response =>{
@@ -17,7 +18,9 @@ const getDetails =() =>{
     number.textContent = `Phone Number: ${data.results[0].phone}`;
     email.textContent = `Email Address: ${data.results[0].email}`;
     address.textContent = `Home Address: ${data.results[0].location.street.number + ','}  ${data.results[0].location.street.name}  ${data.results[0].location.city} ${data.results[0].location.country}`
-    })
-}
+})
 
-getDetails()
+}
+button.addEventListener('click',getDetails)
+
+
